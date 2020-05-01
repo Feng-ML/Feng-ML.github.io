@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>输入hexo d时的错误</title>
+      <link href="/2020/050127828.html"/>
+      <url>/2020/050127828.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="输入hexo-d时的错误"><a href="#输入hexo-d时的错误" class="headerlink" title="输入hexo d时的错误"></a>输入hexo d时的错误</h1><p>在输入hexo d打算把代码提交到git仓库时发生的错误<br>错误代码如下：  </p><pre class=" language-bash"><code class="language-bash">*** Please tell me <span class="token function">who</span> you are.Run  <span class="token function">git</span> config --global user.email <span class="token string">"you@example.com"</span>  <span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span>to <span class="token keyword">set</span> your account<span class="token string">'s default identity.Omit --global to set the identity only in this repository.fatal: unable to auto-detect email address (got '</span>Administrator@A-20180302OZNSB.<span class="token punctuation">(</span>none<span class="token punctuation">)</span><span class="token string">')error: src refspec HEAD does not match anyerror: failed to push some refs to '</span>git@github.com:Feng-ML/Feng-ML.github.io.git<span class="token string">'FATAL Something'</span>s wrong. Maybe you can <span class="token function">find</span> the solution here: https://hexo.io/docs/troubleshooting.htmlError: Spawn failed    at ChildProcess.<span class="token operator">&lt;</span>anonymous<span class="token operator">></span> <span class="token punctuation">(</span>E:\myblog\hexoblog\node_modules\_hexo-util@1.9.0@hexo-util\lib\spawn.js:51:21<span class="token punctuation">)</span>    at ChildProcess.emit <span class="token punctuation">(</span>events.js:210:5<span class="token punctuation">)</span>    at ChildProcess.cp.emit <span class="token punctuation">(</span>E:\myblog\hexoblog\node_modules\_cross-spawn@7.0.2@cross-spawn\lib\enoent.js:34:29<span class="token punctuation">)</span>    at Process.ChildProcess._handle.onexit <span class="token punctuation">(</span>internal/child_process.js:272:12<span class="token punctuation">)</span></code></pre><p>经查找这是需要我们输入邮箱与用户名。<br>即需要运行如下代码：</p><pre class=" language-bash"><code class="language-bash">  <span class="token comment" spellcheck="true"># 引号内填写自己的邮箱与用户名</span>  <span class="token function">git</span> config --global user.email <span class="token string">"you@example.com"</span>  <span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span></code></pre><p>运行完后重新输入hexo d后提交成功！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> error </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2020/042816107.html"/>
       <url>/2020/042816107.html</url>
@@ -11,6 +38,18 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
       
       
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
       
     </entry>
     
