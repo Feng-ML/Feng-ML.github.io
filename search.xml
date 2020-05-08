@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>post遇到的问题</title>
+      <link href="/2020/050656731.html"/>
+      <url>/2020/050656731.html</url>
+      
+        <content type="html"><![CDATA[<p>通过post请求把表单数据传给后台。点击提交后，前端显示提交成功，无任何报错信息，但查找数据库发现数据并没有写入。  </p><h3 id="前端代码："><a href="#前端代码：" class="headerlink" title="前端代码："></a>前端代码：</h3><pre class=" language-bash"><code class="language-bash">data<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">return</span> <span class="token punctuation">{</span>        formData: <span class="token punctuation">{</span>          date: <span class="token string">''</span>,          type: <span class="token string">''</span>,          details: <span class="token string">''</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span>,methods:<span class="token punctuation">{</span>    onsubmit <span class="token punctuation">(</span>formName<span class="token punctuation">)</span><span class="token punctuation">{</span>        this.<span class="token variable">$refs</span><span class="token punctuation">[</span>formName<span class="token punctuation">]</span>.validate<span class="token punctuation">((</span>valid<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>valid<span class="token punctuation">)</span> <span class="token punctuation">{</span>                                    this.<span class="token variable">$axios</span>                    .post<span class="token punctuation">(</span><span class="token string">'/api/fund'</span>,this.formData<span class="token punctuation">)</span>                    .then<span class="token punctuation">(</span> res <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>                        this.<span class="token variable">$message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>                            message: <span class="token string">'提交成功！！'</span>,                            type: <span class="token string">'success'</span>                         <span class="token punctuation">}</span><span class="token punctuation">)</span>                        console.log<span class="token punctuation">(</span>res<span class="token punctuation">)</span>                        this.<span class="token variable">$emit</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">)</span>                    <span class="token punctuation">}</span><span class="token punctuation">)</span>                    .catch<span class="token punctuation">(</span> err <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>                        console.log<span class="token punctuation">(</span>err<span class="token punctuation">)</span>                    <span class="token punctuation">}</span><span class="token punctuation">)</span>            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h3 id="后端node代码："><a href="#后端node代码：" class="headerlink" title="后端node代码："></a>后端node代码：</h3><pre class=" language-bash"><code class="language-bash">router.post<span class="token punctuation">(</span><span class="token string">'/'</span>, <span class="token punctuation">(</span>req, res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    const newFund <span class="token operator">=</span> new Fund<span class="token punctuation">(</span><span class="token punctuation">{</span>        date: req.body.date,        type: req.body.type,        details: req.body.details,        person: req.body.person,    <span class="token punctuation">}</span><span class="token punctuation">)</span>    newFund.save<span class="token punctuation">(</span><span class="token punctuation">)</span>        .then<span class="token punctuation">(</span>user <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>            res.json<span class="token punctuation">(</span>user<span class="token punctuation">)</span>        <span class="token punctuation">}</span><span class="token punctuation">)</span>        .catch<span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>            res.json<span class="token punctuation">(</span>err<span class="token punctuation">)</span>        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre><p>通过postman验证后端代码没有问题。<br>检测前端代码后发现传表单数据时传少了一个属性，而在后端该model中规定该属性为必填项，故导致该数据无法写入数据库。  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> error </tag>
+            
+            <tag> Vue </tag>
+            
+            <tag> axios </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo d错误</title>
       <link href="/2020/050127828.html"/>
       <url>/2020/050127828.html</url>
