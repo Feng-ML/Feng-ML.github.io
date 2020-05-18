@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="post遇到的问题, 海棠的博客">
+    <meta name="keywords" content="SPA工作原理, 海棠的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>post遇到的问题 | 海棠的博客</title>
+    <title>SPA工作原理 | 海棠的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">post遇到的问题</h1>
+                    <h1 class="description center-align post-title">SPA工作原理</h1>
                 </div>
             </div>
         </div>
@@ -434,16 +434,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/error/">
-                                <span class="chip bg-color">error</span>
+                            <a href="/tags/SPA/">
+                                <span class="chip bg-color">SPA</span>
                             </a>
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
+                            <a href="/tags/Hash/">
+                                <span class="chip bg-color">Hash</span>
                             </a>
                         
-                            <a href="/tags/axios/">
-                                <span class="chip bg-color">axios</span>
+                            <a href="/tags/History/">
+                                <span class="chip bg-color">History</span>
                             </a>
                         
                     </div>
@@ -454,8 +454,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/SPA/" class="post-category">
+                                SPA
                             </a>
                         
                     </div>
@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-05-18
                 </div>
                 
 
@@ -488,57 +488,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>通过post请求把表单数据传给后台。点击提交后，前端显示提交成功，无任何报错信息，但查找数据库发现数据并没有写入。  </p>
-<h3 id="前端代码："><a href="#前端代码：" class="headerlink" title="前端代码："></a>前端代码：</h3><pre class=" language-bash"><code class="language-bash">data<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        formData: <span class="token punctuation">{</span>
-          date: <span class="token string">''</span>,
-          type: <span class="token string">''</span>,
-          details: <span class="token string">''</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>,
+                <h1 id="SPA设计"><a href="#SPA设计" class="headerlink" title="SPA设计"></a>SPA设计</h1><h2 id="1-设计意义"><a href="#1-设计意义" class="headerlink" title="1.设计意义"></a>1.设计意义</h2><ol>
+<li>前后端分离</li>
+<li>减轻服务器压力</li>
+<li>增强用户体验</li>
+<li>Prerender预渲染优化SEO</li>
+</ol>
+<h2 id="2-工作原理"><a href="#2-工作原理" class="headerlink" title="2.工作原理"></a>2.工作原理</h2><ol>
+<li>History （较好看，对浏览器有要求）<br>通过pushState创建历史记录，通过onpopstate响应浏览器的前进、后退与控制事件，即history发生改变时触发onpopstate。</li>
+<li>Hash （兼容性强）<br>通过location.hash创建历史记录，通过hashchange响应浏览器的前进、后退与控制事件。</li>
+</ol>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><p>History：</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"History a"</span><span class="token operator">></span>a<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+        <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"History b"</span><span class="token operator">></span>b<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
-methods:<span class="token punctuation">{</span>
-    onsubmit <span class="token punctuation">(</span>formName<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        this.<span class="token variable">$refs</span><span class="token punctuation">[</span>formName<span class="token punctuation">]</span>.validate<span class="token punctuation">((</span>valid<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>valid<span class="token punctuation">)</span> <span class="token punctuation">{</span>                    
-                this.<span class="token variable">$axios</span>
-                    .post<span class="token punctuation">(</span><span class="token string">'/api/fund'</span>,this.formData<span class="token punctuation">)</span>
-                    .then<span class="token punctuation">(</span> res <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                        this.<span class="token variable">$message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-                            message: <span class="token string">'提交成功！！'</span>,
-                            type: <span class="token string">'success'</span> 
-                        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                        console.log<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-                        this.<span class="token variable">$emit</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                    .catch<span class="token punctuation">(</span> err <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                        console.log<span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="后端node代码："><a href="#后端node代码：" class="headerlink" title="后端node代码："></a>后端node代码：</h3><pre class=" language-bash"><code class="language-bash">router.post<span class="token punctuation">(</span><span class="token string">'/'</span>, <span class="token punctuation">(</span>req, res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token operator">&lt;</span>script<span class="token operator">></span>
+        <span class="token comment" spellcheck="true">// 注册路由</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.History'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 点击跳转路由</span>
+            item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 阻止默认事件</span>
+                e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">let</span> link <span class="token operator">=</span> item<span class="token punctuation">.</span>textContent<span class="token punctuation">;</span>
+                window<span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span><span class="token string">'History'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>link<span class="token punctuation">,</span>link<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-    const newFund <span class="token operator">=</span> new Fund<span class="token punctuation">(</span><span class="token punctuation">{</span>
-        date: req.body.date,
-        type: req.body.type,
-        details: req.body.details,
-        person: req.body.person,
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    newFund.save<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        .then<span class="token punctuation">(</span>user <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            res.json<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">// 监听路由</span>
+        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'popstate'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 浏览器前进后退时输出信息</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                location<span class="token punctuation">:</span> location<span class="token punctuation">.</span>href<span class="token punctuation">,</span>
+                state<span class="token punctuation">:</span> e<span class="token punctuation">.</span>state
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>Hash：</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"Hash a"</span><span class="token operator">></span>#a<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+        <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"Hash b"</span><span class="token operator">></span>#b<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>script<span class="token operator">></span>
+        <span class="token comment" spellcheck="true">// 注册路由</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.Hash'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 点击跳转路由</span>
+            item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 阻止默认事件</span>
+                e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">let</span> link <span class="token operator">=</span> item<span class="token punctuation">.</span>textContent<span class="token punctuation">;</span>
+                location<span class="token punctuation">.</span>hash <span class="token operator">=</span> link<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        .catch<span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            res.json<span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>通过postman验证后端代码没有问题。<br>检测前端代码后发现传表单数据时传少了一个属性，而在后端该model中规定该属性为必填项，故导致该数据无法写入数据库。  </p>
+
+        <span class="token comment" spellcheck="true">// 监听路由</span>
+        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'hashchange'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 浏览器前进后退时输出信息</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                location<span class="token punctuation">:</span> location<span class="token punctuation">.</span>href<span class="token punctuation">,</span>
+                hash<span class="token punctuation">:</span> location<span class="token punctuation">.</span>hash
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 
             </div>
             <hr/>
@@ -564,7 +577,7 @@ methods:<span class="token punctuation">{</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Feng-ML.github.io/2020/050656731.html">http://Feng-ML.github.io/2020/050656731.html</a>
+                    <a href="http://Feng-ML.github.io/2020/051845323.html">http://Feng-ML.github.io/2020/051845323.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -602,16 +615,16 @@ methods:<span class="token punctuation">{</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/error/">
-                                    <span class="chip bg-color">error</span>
+                                <a href="/tags/SPA/">
+                                    <span class="chip bg-color">SPA</span>
                                 </a>
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
+                                <a href="/tags/Hash/">
+                                    <span class="chip bg-color">Hash</span>
                                 </a>
                             
-                                <a href="/tags/axios/">
-                                    <span class="chip bg-color">axios</span>
+                                <a href="/tags/History/">
+                                    <span class="chip bg-color">History</span>
                                 </a>
                             
                         </div>
@@ -782,7 +795,7 @@ methods:<span class="token punctuation">{</span>
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-05-06T17-52-17',
+        id: '2020-05-18T17-38-34',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -806,9 +819,10 @@ methods:<span class="token punctuation">{</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/051845323.html">
                     <div class="card-image">
@@ -833,9 +847,9 @@ History （较好看，对浏览器有要求）通过pushState创建历史记录
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -848,6 +862,7 @@ History （较好看，对浏览器有要求）通过pushState创建历史记录
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -874,36 +889,35 @@ History （较好看，对浏览器有要求）通过pushState创建历史记录
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/050127828.html">
+                <a href="/2020/050656731.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="hexo d错误">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="post遇到的问题">
                         
-                        <span class="card-title">hexo d错误</span>
+                        <span class="card-title">post遇到的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            输入hexo d时的错误在输入hexo d打算把代码提交到git仓库时发生的错误错误代码如下：  
-*** Please tell me who you are.
-
-Run
-
-  git config --global user.email
+                            通过post请求把表单数据传给后台。点击提交后，前端显示提交成功，无任何报错信息，但查找数据库发现数据并没有写入。  
+前端代码：data(){
+    return {
+        formData: {
+          date
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -913,12 +927,16 @@ Run
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
                     <a href="/tags/error/">
                         <span class="chip bg-color">error</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                    <a href="/tags/axios/">
+                        <span class="chip bg-color">axios</span>
                     </a>
                     
                 </div>
