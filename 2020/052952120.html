@@ -482,14 +482,16 @@
             <div id="articleContent">
                 <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。即把用户的markdown文件，按照指定的主题解析成静态网页。  </p>
 <h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><p>安装使用hexo之前需要先安装Node.js和Git，当已经安装了Node.js和npm(npm是node.js的包管理工具)，可以通过以下命令安装hexo</p>
-<pre><code>npm install -g hexo-cli</code></pre><p>可以通过以下命令查看主机中是否安装了node.js和npm</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli</code></pre>
+<p>可以通过以下命令查看主机中是否安装了node.js和npm</p>
 <pre class=" language-bash"><code class="language-bash">node --version    <span class="token comment" spellcheck="true">#检查是否安装了node.js</span>
 <span class="token function">npm</span> --version     <span class="token comment" spellcheck="true">#检查是否安装了npm</span></code></pre>
 <p>如果出现了版本号说明已经安装了node.js和npm。</p>
 <h2 id="3-建站"><a href="#3-建站" class="headerlink" title="3. 建站"></a>3. 建站</h2><p>安装完Hexo之后，执行下列命令，Hexo将会在指定目录中新建所需要的文件，指定的目录即为Hexo的工作站</p>
-<pre><code>hexo init &lt;folder&gt;
-cd &lt;folder&gt;
-npm install</code></pre><p>新建完成之后，指定目录中的情况如下</p>
+<pre class=" language-bash"><code class="language-bash">hexo init <span class="token operator">&lt;</span>folder<span class="token operator">></span>
+<span class="token function">cd</span> <span class="token operator">&lt;</span>folder<span class="token operator">></span>
+<span class="token function">npm</span> <span class="token function">install</span></code></pre>
+<p>新建完成之后，指定目录中的情况如下</p>
 <pre><code>.
 ├── _config.yml
 ├── package.json
@@ -502,12 +504,14 @@ npm install</code></pre><p>新建完成之后，指定目录中的情况如下</
 <h3 id="3-3-source"><a href="#3-3-source" class="headerlink" title="3.3 source"></a>3.3 source</h3><p>资源文件夹是存放用户资源的地方，如markdown文章。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
 <h3 id="3-4-themes"><a href="#3-4-themes" class="headerlink" title="3.4 themes"></a>3.4 themes</h3><p>主题文件夹。Hexo 会根据主题来解析source目录中的markdown文件生成静态页面。将下载的主题文件放到该文件夹下，并在配置文件下修改应用主题即可更换主题。<a href="https://hexo.io/zh-cn/docs/themes" target="_blank" rel="noopener">主题讲解</a></p>
 <h2 id="4-写作"><a href="#4-写作" class="headerlink" title="4. 写作"></a>4. 写作</h2><p>可以执行下列命令来创建一篇新文章。</p>
-<pre><code>hexo new [layout] &lt;title&gt;</code></pre><p>可以在命令中指定文章的布局（layout），不指定默认为 post，也可以通过修改 <code>_config.yml</code> 中的 default_layout 参数来指定默认布局。创建的新文章会自动加上指定布局对应的模板文件中的内容。</p>
+<pre class=" language-bash"><code class="language-bash">hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">></span></code></pre>
+<p>可以在命令中指定文章的布局（layout），不指定默认为 post，也可以通过修改 <code>_config.yml</code> 中的 default_layout 参数来指定默认布局。创建的新文章会自动加上指定布局对应的模板文件中的内容。</p>
 <h3 id="4-1-布局（Layout）"><a href="#4-1-布局（Layout）" class="headerlink" title="4.1 布局（Layout）"></a>4.1 布局（Layout）</h3><p>Hexo 有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而自定义的其他布局和 post 相同，都将储存到 <code>source/_posts</code> 文件夹。</p>
 <p>布局路径<code>postsource/_postspagesourcedraftsource/_drafts</code></p>
 <p>如果你不想你的文章被处理，你可以将 Front-Matter 中的layout: 设为 false 。</p>
 <h3 id="4-2-模版（Scaffold）"><a href="#4-2-模版（Scaffold）" class="headerlink" title="4.2 模版（Scaffold）"></a>4.2 模版（Scaffold）</h3><p>在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件，例如：</p>
-<pre><code>hexo new photo &quot;My Gallery&quot;</code></pre><p>在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 <code>photo.md</code>，并根据其内容建立文章，以下是您可以在模版中使用的变量：</p>
+<pre class=" language-bash"><code class="language-bash">hexo new photo <span class="token string">"My Gallery"</span></code></pre>
+<p>在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 <code>photo.md</code>，并根据其内容建立文章，以下是您可以在模版中使用的变量：</p>
 <p>变量描述layout布局title标题date文件建立日期</p>
 <h3 id="4-3-Front-matter"><a href="#4-3-Front-matter" class="headerlink" title="4.3 Front-matter"></a>4.3 Front-matter</h3><p>Front-matter是文件最上方以 — 分隔的区域，用于指定个别文件的变量，举例来说：</p>
 <pre><code>---
@@ -523,7 +527,7 @@ tags:
 - PS3
 - Games</code></pre><p>WordPress支持对一篇文章设置多个分类，而且这些分类可以是同级的，也可以是父子分类。但是Hexo不支持指定多个同级分类。</p>
 <h3 id="4-4-文章摘要"><a href="#4-4-文章摘要" class="headerlink" title="4.4 文章摘要"></a>4.4 文章摘要</h3><p>设置文章摘要，我们只需在想显示为摘要的内容之后添 <code>&lt;!-- more --&gt;</code>即可。像下面这样：</p>
-<pre><code>---
+<pre class=" language-bash"><code class="language-bash">---
 title: hello hexo markdown
 tags:
 - hexo
@@ -532,9 +536,10 @@ tags:
 
 文章摘要
 
-&lt;!-- more --&gt;
+<span class="token operator">&lt;</span><span class="token operator">!</span>-- <span class="token function">more</span> --<span class="token operator">></span>
 
-正文内容</code></pre><p>这样，<code>&lt;!-- more --&gt;</code> 之前、文档配置参数之后中的内容便会被渲染为站点中的文章摘要。</p>
+正文内容</code></pre>
+<p>这样，<code>&lt;!-- more --&gt;</code> 之前、文档配置参数之后中的内容便会被渲染为站点中的文章摘要。</p>
 <p>注意！文章摘要在文章详情页是正文中最前面的内容。</p>
 <h3 id="4-5-资源引用"><a href="#4-5-资源引用" class="headerlink" title="4.5 资源引用"></a>4.5 资源引用</h3><p>写个博客，有时候会想添加个图片或者其他形式的资源等等。有以下两种方式进行解决：</p>
 <p>使用绝对路径引用资源，在 Web 世界中就是资源的 URL<br>使用相对路径引用资源<br>对于使用相对路径引用资源的，我们可以使用 Hexo 提供的资源文件夹功能。</p>
@@ -555,10 +560,12 @@ deploy:
   branch: master
   ignore_hidden: <span class="token boolean">false</span></code></pre>
 <p>并且我们需要额外的一个工具来帮助我们推到仓库上</p>
-<pre><code>npm install hexo-deployer-git --save</code></pre><p>然后执行以下命令即可自动部署到github上</p>
-<pre><code>hexo clean
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save</code></pre>
+<p>然后执行以下命令即可自动部署到github上</p>
+<pre class=" language-bash"><code class="language-bash">hexo clean
 
-hexo deploy</code></pre><h3 id="5-3-部署到Apache或者Nginx上"><a href="#5-3-部署到Apache或者Nginx上" class="headerlink" title="5.3 部署到Apache或者Nginx上"></a>5.3 部署到Apache或者Nginx上</h3><p>通过hexo g命令生成的都是静态网页，可以把生成的public目录中的文件，全都拷贝到网站根目录，然后启动apache或者nginx服务。</p>
+hexo deploy</code></pre>
+<h3 id="5-3-部署到Apache或者Nginx上"><a href="#5-3-部署到Apache或者Nginx上" class="headerlink" title="5.3 部署到Apache或者Nginx上"></a>5.3 部署到Apache或者Nginx上</h3><p>通过hexo g命令生成的都是静态网页，可以把生成的public目录中的文件，全都拷贝到网站根目录，然后启动apache或者nginx服务。</p>
 <h2 id="6-参考链接"><a href="#6-参考链接" class="headerlink" title="6.参考链接"></a>6.参考链接</h2><blockquote>
 <h1 id="Hexo"><a href="#Hexo" class="headerlink" title=" Hexo"></a><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener"> <strong><em>Hexo</em></strong></a></h1></blockquote>
 
