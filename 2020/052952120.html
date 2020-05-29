@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="post遇到的问题, 海棠的博客">
+    <meta name="keywords" content="Hexo的基本使用, 海棠的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>post遇到的问题 | 海棠的博客</title>
+    <title>Hexo的基本使用 | 海棠的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">post遇到的问题</h1>
+                    <h1 class="description center-align post-title">Hexo的基本使用</h1>
                 </div>
             </div>
         </div>
@@ -434,16 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
-                            </a>
-                        
-                            <a href="/tags/error/">
-                                <span class="chip bg-color">error</span>
-                            </a>
-                        
-                            <a href="/tags/axios/">
-                                <span class="chip bg-color">axios</span>
+                            <a href="/tags/hexo/">
+                                <span class="chip bg-color">hexo</span>
                             </a>
                         
                     </div>
@@ -454,8 +446,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/hexo/" class="post-category">
+                                hexo
                             </a>
                         
                     </div>
@@ -467,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-05-29
                 </div>
                 
 
@@ -488,57 +480,87 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>通过post请求把表单数据传给后台。点击提交后，前端显示提交成功，无任何报错信息，但查找数据库发现数据并没有写入。  </p>
-<h3 id="前端代码："><a href="#前端代码：" class="headerlink" title="前端代码："></a>前端代码：</h3><pre class=" language-bash"><code class="language-bash">data<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        formData: <span class="token punctuation">{</span>
-          date: <span class="token string">''</span>,
-          type: <span class="token string">''</span>,
-          details: <span class="token string">''</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>,
+                <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。即把用户的markdown文件，按照指定的主题解析成静态网页。  </p>
+<h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h2><p>安装使用hexo之前需要先安装Node.js和Git，当已经安装了Node.js和npm(npm是node.js的包管理工具)，可以通过以下命令安装hexo</p>
+<pre><code>npm install -g hexo-cli</code></pre><p>可以通过以下命令查看主机中是否安装了node.js和npm</p>
+<pre class=" language-bash"><code class="language-bash">node --version    <span class="token comment" spellcheck="true">#检查是否安装了node.js</span>
+<span class="token function">npm</span> --version     <span class="token comment" spellcheck="true">#检查是否安装了npm</span></code></pre>
+<p>如果出现了版本号说明已经安装了node.js和npm。</p>
+<h2 id="3-建站"><a href="#3-建站" class="headerlink" title="3. 建站"></a>3. 建站</h2><p>安装完Hexo之后，执行下列命令，Hexo将会在指定目录中新建所需要的文件，指定的目录即为Hexo的工作站</p>
+<pre><code>hexo init &lt;folder&gt;
+cd &lt;folder&gt;
+npm install</code></pre><p>新建完成之后，指定目录中的情况如下</p>
+<pre><code>.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes</code></pre><h3 id="3-1-config-yml"><a href="#3-1-config-yml" class="headerlink" title="3.1  _config.yml"></a>3.1  _config.yml</h3><p>网站的配置信息，您可以在此配置大部分的参数。<a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">配置参数讲解</a></p>
+<h3 id="3-2-scaffolds"><a href="#3-2-scaffolds" class="headerlink" title="3.2 scaffolds"></a>3.2 scaffolds</h3><p>模版文件夹。新建文章时，Hexo 会根据 <code>scaffold</code> 中的模板文件来建立新的文件。Hexo的模板是指在新建的markdown文件中默认填充的内容。例如，如果修改<code>scaffold/post.md</code>中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。也就是说，通过hexo命令每新建一个文章，都会包含指定模板文件中的内容。<br><a href="https://hexo.io/zh-cn/docs/templates" target="_blank" rel="noopener">模板讲解</a></p>
+<h3 id="3-3-source"><a href="#3-3-source" class="headerlink" title="3.3 source"></a>3.3 source</h3><p>资源文件夹是存放用户资源的地方，如markdown文章。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<h3 id="3-4-themes"><a href="#3-4-themes" class="headerlink" title="3.4 themes"></a>3.4 themes</h3><p>主题文件夹。Hexo 会根据主题来解析source目录中的markdown文件生成静态页面。将下载的主题文件放到该文件夹下，并在配置文件下修改应用主题即可更换主题。<a href="https://hexo.io/zh-cn/docs/themes" target="_blank" rel="noopener">主题讲解</a></p>
+<h2 id="4-写作"><a href="#4-写作" class="headerlink" title="4. 写作"></a>4. 写作</h2><p>可以执行下列命令来创建一篇新文章。</p>
+<pre><code>hexo new [layout] &lt;title&gt;</code></pre><p>可以在命令中指定文章的布局（layout），不指定默认为 post，也可以通过修改 <code>_config.yml</code> 中的 default_layout 参数来指定默认布局。创建的新文章会自动加上指定布局对应的模板文件中的内容。</p>
+<h3 id="4-1-布局（Layout）"><a href="#4-1-布局（Layout）" class="headerlink" title="4.1 布局（Layout）"></a>4.1 布局（Layout）</h3><p>Hexo 有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而自定义的其他布局和 post 相同，都将储存到 <code>source/_posts</code> 文件夹。</p>
+<p>布局路径<code>postsource/_postspagesourcedraftsource/_drafts</code></p>
+<p>如果你不想你的文章被处理，你可以将 Front-Matter 中的layout: 设为 false 。</p>
+<h3 id="4-2-模版（Scaffold）"><a href="#4-2-模版（Scaffold）" class="headerlink" title="4.2 模版（Scaffold）"></a>4.2 模版（Scaffold）</h3><p>在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件，例如：</p>
+<pre><code>hexo new photo &quot;My Gallery&quot;</code></pre><p>在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 <code>photo.md</code>，并根据其内容建立文章，以下是您可以在模版中使用的变量：</p>
+<p>变量描述layout布局title标题date文件建立日期</p>
+<h3 id="4-3-Front-matter"><a href="#4-3-Front-matter" class="headerlink" title="4.3 Front-matter"></a>4.3 Front-matter</h3><p>Front-matter是文件最上方以 — 分隔的区域，用于指定个别文件的变量，举例来说：</p>
+<pre><code>---
+title: Hello World
+date: 2020/5/13 20:46:25
+---</code></pre><p>注意：一般Front-matter使用的yaml语法，yaml语法需要注意空格，如<code>title: Hello World</code>冒号需要有一个空格，当然除YAML 外，你也可以使用 JSON 来编写 Front-matter。<br>以下是预先定义的参数，您可在模板中使用这些参数值并加以利用。</p>
+<p>参数描述默认值layout布局title标题date建立日期文件建立日updated更新日期文件更新日期comments开启文章的评论功能truetags标签（不适用于分页）categories分类（不适用于分页）permalink覆盖文章网址</p>
+<p>分类和标签</p>
+<p>只有文章支持分类和标签，您可以在 Front-matter 中设置。在其他系统中，分类和标签听起来很接近，但是在 Hexo 中两者有着明显的差别：分类具有顺序性和层次性而标签没有顺序和层次。</p>
+<pre><code>categories:
+- Diary
+tags:
+- PS3
+- Games</code></pre><p>WordPress支持对一篇文章设置多个分类，而且这些分类可以是同级的，也可以是父子分类。但是Hexo不支持指定多个同级分类。</p>
+<h3 id="4-4-文章摘要"><a href="#4-4-文章摘要" class="headerlink" title="4.4 文章摘要"></a>4.4 文章摘要</h3><p>设置文章摘要，我们只需在想显示为摘要的内容之后添 <code>&lt;!-- more --&gt;</code>即可。像下面这样：</p>
+<pre><code>---
+title: hello hexo markdown
+tags:
+- hexo
+- markdown
+---
 
-methods:<span class="token punctuation">{</span>
-    onsubmit <span class="token punctuation">(</span>formName<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        this.<span class="token variable">$refs</span><span class="token punctuation">[</span>formName<span class="token punctuation">]</span>.validate<span class="token punctuation">((</span>valid<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>valid<span class="token punctuation">)</span> <span class="token punctuation">{</span>                    
-                this.<span class="token variable">$axios</span>
-                    .post<span class="token punctuation">(</span><span class="token string">'/api/fund'</span>,this.formData<span class="token punctuation">)</span>
-                    .then<span class="token punctuation">(</span> res <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                        this.<span class="token variable">$message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-                            message: <span class="token string">'提交成功！！'</span>,
-                            type: <span class="token string">'success'</span> 
-                        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                        console.log<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-                        this.<span class="token variable">$emit</span><span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                    .catch<span class="token punctuation">(</span> err <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                        console.log<span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="后端node代码："><a href="#后端node代码：" class="headerlink" title="后端node代码："></a>后端node代码：</h3><pre class=" language-bash"><code class="language-bash">router.post<span class="token punctuation">(</span><span class="token string">'/'</span>, <span class="token punctuation">(</span>req, res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+文章摘要
 
-    const newFund <span class="token operator">=</span> new Fund<span class="token punctuation">(</span><span class="token punctuation">{</span>
-        date: req.body.date,
-        type: req.body.type,
-        details: req.body.details,
-        person: req.body.person,
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    newFund.save<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        .then<span class="token punctuation">(</span>user <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            res.json<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        .catch<span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            res.json<span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>通过postman验证后端代码没有问题。<br>检测前端代码后发现传表单数据时传少了一个属性，而在后端该model中规定该属性为必填项，故导致该数据无法写入数据库。  </p>
+&lt;!-- more --&gt;
+
+正文内容</code></pre><p>这样，<code>&lt;!-- more --&gt;</code> 之前、文档配置参数之后中的内容便会被渲染为站点中的文章摘要。</p>
+<p>注意！文章摘要在文章详情页是正文中最前面的内容。</p>
+<h3 id="4-5-资源引用"><a href="#4-5-资源引用" class="headerlink" title="4.5 资源引用"></a>4.5 资源引用</h3><p>写个博客，有时候会想添加个图片或者其他形式的资源等等。有以下两种方式进行解决：</p>
+<p>使用绝对路径引用资源，在 Web 世界中就是资源的 URL<br>使用相对路径引用资源<br>对于使用相对路径引用资源的，我们可以使用 Hexo 提供的资源文件夹功能。</p>
+<p>使用文本编辑器打开站点根目录下的 <code>_config.yml</code> 文件，将 post_asset_folder 值设置为 true。</p>
+<pre><code>post_asset_folder: true</code></pre><p>修改之后会开启 Hexo 的文章资源文件管理功能。Hexo 将会在我们每一次通过 <code>hexo new &lt;title&gt;</code> 命令创建新文章时自动创建一个同名文件夹，于是我们便可以将文章所引用的相关资源放到这个同名文件夹下，然后通过相对路径引用。例如，你把一个 example.jpg 图片放在了这个同名文件夹中，使用相对路径的常规 markdown 语法 <code>![](./example.jpg)</code>即可访问 。  </p>
+<h2 id="5-网站发布"><a href="#5-网站发布" class="headerlink" title="5. 网站发布"></a>5. 网站发布</h2><p>首先执行下列命令生成相应的静态网页，生成的静态网页以及相关资源都会在public目录下</p>
+<pre class=" language-bash"><code class="language-bash">hexo generate       <span class="token comment" spellcheck="true">#可简写成 hexo g</span></code></pre>
+<h3 id="5-1-用hexo-server"><a href="#5-1-用hexo-server" class="headerlink" title="5.1 用hexo-server"></a>5.1 用hexo-server</h3><p>hexo-server模块的主要命令如下，输入以下命令以启动服务器，您的网站会在本地启动。在服务器启动期间，Hexo 会监视文件变动并自动更新，您无须重启服务器。</p>
+<pre class=" language-bash"><code class="language-bash">hexo server     <span class="token comment" spellcheck="true">#可简写成 hexo s</span></code></pre>
+<p>如果您想要更改端口，或是在执行时遇到了 EADDRINUSE 错误，可以在执行时使用 -p 选项指定其他端口，如下：</p>
+<pre><code>hexo server -p 5000</code></pre><p>由于是本地启动，比较适用于调试。</p>
+<h3 id="5-2-部署到Git上"><a href="#5-2-部署到Git上" class="headerlink" title="5.2 部署到Git上"></a>5.2 部署到Git上</h3><p>在项目根目录下找到配置文件 <code>_congif.yml</code>，找到 deploy 字段并填写完整</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Deployment</span>
+<span class="token comment" spellcheck="true">## Docs: https://hexo.io/docs/deployment.html</span>
+deploy:
+  type: <span class="token function">git</span>
+  repo: <span class="token operator">&lt;</span>你的仓库地址<span class="token operator">></span> <span class="token comment" spellcheck="true">#git@github.com:Feng-ML/Feng-ML.github.io.git</span>
+  branch: master
+  ignore_hidden: <span class="token boolean">false</span></code></pre>
+<p>并且我们需要额外的一个工具来帮助我们推到仓库上</p>
+<pre><code>npm install hexo-deployer-git --save</code></pre><p>然后执行以下命令即可自动部署到github上</p>
+<pre><code>hexo clean
+
+hexo deploy</code></pre><h3 id="5-3-部署到Apache或者Nginx上"><a href="#5-3-部署到Apache或者Nginx上" class="headerlink" title="5.3 部署到Apache或者Nginx上"></a>5.3 部署到Apache或者Nginx上</h3><p>通过hexo g命令生成的都是静态网页，可以把生成的public目录中的文件，全都拷贝到网站根目录，然后启动apache或者nginx服务。</p>
+<h2 id="6-参考链接"><a href="#6-参考链接" class="headerlink" title="6.参考链接"></a>6.参考链接</h2><blockquote>
+<h1 id="Hexo"><a href="#Hexo" class="headerlink" title=" Hexo"></a><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener"> <strong><em>Hexo</em></strong></a></h1></blockquote>
 
             </div>
             <hr/>
@@ -564,7 +586,7 @@ methods:<span class="token punctuation">{</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Feng-ML.github.io/2020/050656731.html">http://Feng-ML.github.io/2020/050656731.html</a>
+                    <a href="http://Feng-ML.github.io/2020/052952120.html">http://Feng-ML.github.io/2020/052952120.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -602,16 +624,8 @@ methods:<span class="token punctuation">{</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
-                                </a>
-                            
-                                <a href="/tags/error/">
-                                    <span class="chip bg-color">error</span>
-                                </a>
-                            
-                                <a href="/tags/axios/">
-                                    <span class="chip bg-color">axios</span>
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
                                 </a>
                             
                         </div>
@@ -782,7 +796,7 @@ methods:<span class="token punctuation">{</span>
         repo: '',
         owner: '',
         admin: null,
-        id: '2020-05-06T17-52-17',
+        id: '2020-05-29T17-59-57',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -806,9 +820,61 @@ methods:<span class="token punctuation">{</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/052952120.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Hexo的基本使用">
+                        
+                        <span class="card-title">Hexo的基本使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1.前言Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。即把用户的markdown文件，按照指定的主题解析成静态网页。  
+2.安装hexo安装
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/051845323.html">
                     <div class="card-image">
@@ -833,9 +899,9 @@ History （较美观，对浏览器有要求）通过pushState创建历史记录
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -861,64 +927,6 @@ History （较美观，对浏览器有要求）通过pushState创建历史记录
                     
                     <a href="/tags/History/">
                         <span class="chip bg-color">History</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/050127828.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="hexo d错误">
-                        
-                        <span class="card-title">hexo d错误</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            输入hexo d时的错误在输入hexo d打算把代码提交到git仓库时发生的错误错误代码如下：  
-*** Please tell me who you are.
-
-Run
-
-  git config --global user.email
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                    <a href="/tags/error/">
-                        <span class="chip bg-color">error</span>
                     </a>
                     
                 </div>
