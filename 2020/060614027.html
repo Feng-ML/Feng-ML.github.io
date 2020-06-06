@@ -471,45 +471,44 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>MVVM(Model-View-ViewModel)是一种软件架构设计模式，是一种简化用户界面的事件驱动编程方式。MVVM是一种架构模式，并非一种框架，是一种思想，一种组织和管理代码的艺术。它利用数据绑定、属性依赖、路由事件、命令等特性实现高效灵活的架构。</p>
+                <p>MVVM(Model-View-ViewModel)&#x662F;&#x4E00;&#x79CD;&#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7B80;&#x5316;&#x7528;&#x6237;&#x754C;&#x9762;&#x7684;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7F16;&#x7A0B;&#x65B9;&#x5F0F;&#x3002;MVVM&#x662F;&#x4E00;&#x79CD;&#x67B6;&#x6784;&#x6A21;&#x5F0F;&#xFF0C;&#x5E76;&#x975E;&#x4E00;&#x79CD;&#x6846;&#x67B6;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x601D;&#x60F3;&#xFF0C;&#x4E00;&#x79CD;&#x7EC4;&#x7EC7;&#x548C;&#x7BA1;&#x7406;&#x4EE3;&#x7801;&#x7684;&#x827A;&#x672F;&#x3002;&#x5B83;&#x5229;&#x7528;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x3001;&#x5C5E;&#x6027;&#x4F9D;&#x8D56;&#x3001;&#x8DEF;&#x7531;&#x4E8B;&#x4EF6;&#x3001;&#x547D;&#x4EE4;&#x7B49;&#x7279;&#x6027;&#x5B9E;&#x73B0;&#x9AD8;&#x6548;&#x7075;&#x6D3B;&#x7684;&#x67B6;&#x6784;&#x3002;</p>
 <hr>
-<p>常见的客户端结构设计有三种方式：</p>
+<p>&#x5E38;&#x89C1;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
 <ul>
 <li>MVC Model-View-Controller</li>
 <li>MVP Model-View-Presenter</li>
 <li>MVVM Model-View-ViewModel</li>
 </ul>
-<p>MVVM在本质上就是MVC的改进版，即模型-视图-视图模型。其中</p>
+<p>MVVM&#x5728;&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;MVC&#x7684;&#x6539;&#x8FDB;&#x7248;&#xFF0C;&#x5373;&#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x89C6;&#x56FE;&#x6A21;&#x578B;&#x3002;&#x5176;&#x4E2D;</p>
 <ul>
-<li>【模型】指的是后端传递的数据</li>
-<li>【视图】指的是用户所看到的页面。</li>
-<li>【视图模型】mvvm模式的核心，它是连接view和model的桥梁。</li>
+<li>&#x3010;&#x6A21;&#x578B;&#x3011;&#x6307;&#x7684;&#x662F;&#x540E;&#x7AEF;&#x4F20;&#x9012;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x3010;&#x89C6;&#x56FE;&#x3011;&#x6307;&#x7684;&#x662F;&#x7528;&#x6237;&#x6240;&#x770B;&#x5230;&#x7684;&#x9875;&#x9762;&#x3002;</li>
+<li>&#x3010;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#x3011;mvvm&#x6A21;&#x5F0F;&#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x5B83;&#x662F;&#x8FDE;&#x63A5;view&#x548C;model&#x7684;&#x6865;&#x6881;&#x3002;</li>
 </ul>
-<p><code>【视图模型】</code>有两个方向：一是将<code>【模型】</code>转化成<code>【视图】</code>，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。二是将<code>【视图】</code>转化成<code>【模型】</code>，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。这两个方向都实现的，我们称之为数据的双向绑定。<br>简单来说，在MVVM中<code>【视图】</code>和<code>【模型】</code>是不可以直接进行通信的，它们之间存在这<code>【视图模型】</code>这个observer观察者的角色。当用户操作<code>【视图】</code>，<code>【视图模型】</code>感知到变化，然后通知<code>【模型】</code>发生相应改变，反之亦然。  </p>
-<img src='./认识MVVM/MVVM1.png'>  
+<p><code>&#x3010;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#x3011;</code>&#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#xFF1A;&#x4E00;&#x662F;&#x5C06;<code>&#x3010;&#x6A21;&#x578B;&#x3011;</code>&#x8F6C;&#x5316;&#x6210;<code>&#x3010;&#x89C6;&#x56FE;&#x3011;</code>&#xFF0C;&#x5373;&#x5C06;&#x540E;&#x7AEF;&#x4F20;&#x9012;&#x7684;&#x6570;&#x636E;&#x8F6C;&#x5316;&#x6210;&#x6240;&#x770B;&#x5230;&#x7684;&#x9875;&#x9762;&#x3002;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x3002;&#x4E8C;&#x662F;&#x5C06;<code>&#x3010;&#x89C6;&#x56FE;&#x3011;</code>&#x8F6C;&#x5316;&#x6210;<code>&#x3010;&#x6A21;&#x578B;&#x3011;</code>&#xFF0C;&#x5373;&#x5C06;&#x6240;&#x770B;&#x5230;&#x7684;&#x9875;&#x9762;&#x8F6C;&#x5316;&#x6210;&#x540E;&#x7AEF;&#x7684;&#x6570;&#x636E;&#x3002;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;DOM &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x90FD;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A;&#x6570;&#x636E;&#x7684;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#x3002;<br>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5728;MVVM&#x4E2D;<code>&#x3010;&#x89C6;&#x56FE;&#x3011;</code>&#x548C;<code>&#x3010;&#x6A21;&#x578B;&#x3011;</code>&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x8FD9;<code>&#x3010;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#x3011;</code>&#x8FD9;&#x4E2A;observer&#x89C2;&#x5BDF;&#x8005;&#x7684;&#x89D2;&#x8272;&#x3002;&#x5F53;&#x7528;&#x6237;&#x64CD;&#x4F5C;<code>&#x3010;&#x89C6;&#x56FE;&#x3011;</code>&#xFF0C;<code>&#x3010;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#x3011;</code>&#x611F;&#x77E5;&#x5230;&#x53D8;&#x5316;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x77E5;<code>&#x3010;&#x6A21;&#x578B;&#x3011;</code>&#x53D1;&#x751F;&#x76F8;&#x5E94;&#x6539;&#x53D8;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002;  </p>
+<img src="/2020/060614027.htmlMVVM1.png">  
 
-<h3 id="为什么会有MVVM框架？"><a href="#为什么会有MVVM框架？" class="headerlink" title="为什么会有MVVM框架？"></a>为什么会有MVVM框架？</h3><p>在过去的10年中，我们已经把很多传统的服务端代码放到了浏览器中，这样就产生了成千上万行的javascript代码，它们连接了各式各样的HTML 和CSS文件，但缺乏正规的组织形式，这也就是为什么越来越多的开发者使用javascript框架。比如：angular、react、vue。浏览器的兼容性问题已经不再是前端的阻碍。前端的项目越来越大，项目的可维护性和扩展性、安全性等成了主要问题。当年为了解决浏览器兼容性问题，出现了很多类库，其中最典型的就是jquery。但是这类库没有实现对业务逻辑的分成，所以维护性和扩展性极差。综上两方面原因，才有了MVVM模式一类框架的出现。比如vue,通过数据的双向绑定，极大了提高了开发效率。  </p>
-<p>ViewModel所封装出来的数据模型包含视图的状态和行为两部分，Model的数据模型只包含状态，这样的封装使得ViewModel可以完整地去描述View层。MVVM最标志的特性是数据绑定，MVVM的核心理念是通过声明式的数据绑定来实现View的分离，完全解耦View。  </p>
-<img src='./认识MVVM/MVVM2.png'>  
+<h3 id="&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;MVVM&#x6846;&#x67B6;&#xFF1F;"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;MVVM&#x6846;&#x67B6;&#xFF1F;" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;MVVM&#x6846;&#x67B6;&#xFF1F;"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x6709;MVVM&#x6846;&#x67B6;&#xFF1F;</h3><p>&#x5728;&#x8FC7;&#x53BB;&#x7684;10&#x5E74;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x628A;&#x5F88;&#x591A;&#x4F20;&#x7EDF;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x4EE3;&#x7801;&#x653E;&#x5230;&#x4E86;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4EA7;&#x751F;&#x4E86;&#x6210;&#x5343;&#x4E0A;&#x4E07;&#x884C;&#x7684;javascript&#x4EE3;&#x7801;&#xFF0C;&#x5B83;&#x4EEC;&#x8FDE;&#x63A5;&#x4E86;&#x5404;&#x5F0F;&#x5404;&#x6837;&#x7684;HTML &#x548C;CSS&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x7F3A;&#x4E4F;&#x6B63;&#x89C4;&#x7684;&#x7EC4;&#x7EC7;&#x5F62;&#x5F0F;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;javascript&#x6846;&#x67B6;&#x3002;&#x6BD4;&#x5982;&#xFF1A;angular&#x3001;react&#x3001;vue&#x3002;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x662F;&#x524D;&#x7AEF;&#x7684;&#x963B;&#x788D;&#x3002;&#x524D;&#x7AEF;&#x7684;&#x9879;&#x76EE;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x9879;&#x76EE;&#x7684;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x548C;&#x6269;&#x5C55;&#x6027;&#x3001;&#x5B89;&#x5168;&#x6027;&#x7B49;&#x6210;&#x4E86;&#x4E3B;&#x8981;&#x95EE;&#x9898;&#x3002;&#x5F53;&#x5E74;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x51FA;&#x73B0;&#x4E86;&#x5F88;&#x591A;&#x7C7B;&#x5E93;&#xFF0C;&#x5176;&#x4E2D;&#x6700;&#x5178;&#x578B;&#x7684;&#x5C31;&#x662F;jquery&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x7C7B;&#x5E93;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x5BF9;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x5206;&#x6210;&#xFF0C;&#x6240;&#x4EE5;&#x7EF4;&#x62A4;&#x6027;&#x548C;&#x6269;&#x5C55;&#x6027;&#x6781;&#x5DEE;&#x3002;&#x7EFC;&#x4E0A;&#x4E24;&#x65B9;&#x9762;&#x539F;&#x56E0;&#xFF0C;&#x624D;&#x6709;&#x4E86;MVVM&#x6A21;&#x5F0F;&#x4E00;&#x7C7B;&#x6846;&#x67B6;&#x7684;&#x51FA;&#x73B0;&#x3002;&#x6BD4;&#x5982;vue,&#x901A;&#x8FC7;&#x6570;&#x636E;&#x7684;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x6781;&#x5927;&#x4E86;&#x63D0;&#x9AD8;&#x4E86;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x3002;  </p>
+<p>ViewModel&#x6240;&#x5C01;&#x88C5;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#x5305;&#x542B;&#x89C6;&#x56FE;&#x7684;&#x72B6;&#x6001;&#x548C;&#x884C;&#x4E3A;&#x4E24;&#x90E8;&#x5206;&#xFF0C;Model&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#x53EA;&#x5305;&#x542B;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x5C01;&#x88C5;&#x4F7F;&#x5F97;ViewModel&#x53EF;&#x4EE5;&#x5B8C;&#x6574;&#x5730;&#x53BB;&#x63CF;&#x8FF0;View&#x5C42;&#x3002;MVVM&#x6700;&#x6807;&#x5FD7;&#x7684;&#x7279;&#x6027;&#x662F;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#xFF0C;MVVM&#x7684;&#x6838;&#x5FC3;&#x7406;&#x5FF5;&#x662F;&#x901A;&#x8FC7;&#x58F0;&#x660E;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x6765;&#x5B9E;&#x73B0;View&#x7684;&#x5206;&#x79BB;&#xFF0C;&#x5B8C;&#x5168;&#x89E3;&#x8026;View&#x3002;  </p>
+<img src="/2020/060614027.htmlMVVM2.png">  
 
-<h3 id="Vue实现原理"><a href="#Vue实现原理" class="headerlink" title="Vue实现原理"></a>Vue实现原理</h3><ol>
-<li>数据监听器</li>
+<h3 id="Vue&#x5B9E;&#x73B0;&#x539F;&#x7406;"><a href="#Vue&#x5B9E;&#x73B0;&#x539F;&#x7406;" class="headerlink" title="Vue&#x5B9E;&#x73B0;&#x539F;&#x7406;"></a>Vue&#x5B9E;&#x73B0;&#x539F;&#x7406;</h3><ol>
+<li>&#x6570;&#x636E;&#x76D1;&#x542C;&#x5668;</li>
 </ol>
-<p>Observer将普通的JS对象传递给VUE实例的data选项，Vue将遍历此对象所有属性，并使用Object.defineProperty()方法将属性全部转换成setter和getter方法。当data中的属性被调用访问时，则会调用getter方法。当data中的属性被改变时，则会调用setter方法。</p>
+<p>Observer&#x5C06;&#x666E;&#x901A;&#x7684;JS&#x5BF9;&#x8C61;&#x4F20;&#x9012;&#x7ED9;VUE&#x5B9E;&#x4F8B;&#x7684;data&#x9009;&#x9879;&#xFF0C;Vue&#x5C06;&#x904D;&#x5386;&#x6B64;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;Object.defineProperty()&#x65B9;&#x6CD5;&#x5C06;&#x5C5E;&#x6027;&#x5168;&#x90E8;&#x8F6C;&#x6362;&#x6210;setter&#x548C;getter&#x65B9;&#x6CD5;&#x3002;&#x5F53;data&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x88AB;&#x8C03;&#x7528;&#x8BBF;&#x95EE;&#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x8C03;&#x7528;getter&#x65B9;&#x6CD5;&#x3002;&#x5F53;data&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x88AB;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x8C03;&#x7528;setter&#x65B9;&#x6CD5;&#x3002;</p>
 <ol start="2">
-<li>指令解析器</li>
+<li>&#x6307;&#x4EE4;&#x89E3;&#x6790;&#x5668;</li>
 </ol>
-<p>Compiler 的作用是对每个元素节点的指令进行解析，替换模板数据，并绑定对应的更新函数，初始化相应的订阅。</p>
+<p>Compiler &#x7684;&#x4F5C;&#x7528;&#x662F;&#x5BF9;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x6307;&#x4EE4;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#xFF0C;&#x66FF;&#x6362;&#x6A21;&#x677F;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x7ED1;&#x5B9A;&#x5BF9;&#x5E94;&#x7684;&#x66F4;&#x65B0;&#x51FD;&#x6570;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x76F8;&#x5E94;&#x7684;&#x8BA2;&#x9605;&#x3002;</p>
 <ol start="3">
-<li>订阅者</li>
+<li>&#x8BA2;&#x9605;&#x8005;</li>
 </ol>
-<p>Watcher作为连接Observer和Compiler的桥梁，能够订阅并接收每个属性变动的通知，执行指令绑定相应回调函数。</p>
+<p>Watcher&#x4F5C;&#x4E3A;&#x8FDE;&#x63A5;Observer&#x548C;Compiler&#x7684;&#x6865;&#x6881;&#xFF0C;&#x80FD;&#x591F;&#x8BA2;&#x9605;&#x5E76;&#x63A5;&#x6536;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x53D8;&#x52A8;&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x6267;&#x884C;&#x6307;&#x4EE4;&#x7ED1;&#x5B9A;&#x76F8;&#x5E94;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
 <ol start="4">
-<li>消息订阅器</li>
+<li>&#x6D88;&#x606F;&#x8BA2;&#x9605;&#x5668;</li>
 </ol>
-<p>Dep内部维护了一个数组，用来执行收集订阅者Watcher，数据变动触发notify()函数，在调用订阅者的update()方法。  </p>
-
-
+<p>Dep&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x7528;&#x6765;&#x6267;&#x884C;&#x6536;&#x96C6;&#x8BA2;&#x9605;&#x8005;Watcher&#xFF0C;&#x6570;&#x636E;&#x53D8;&#x52A8;&#x89E6;&#x53D1;notify()&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x8BA2;&#x9605;&#x8005;&#x7684;update()&#x65B9;&#x6CD5;&#x3002;  </p>
+<p><img src="/2020/060614027.htmlMVVM3.png" alt></p>
 
             </div>
             <hr/>
@@ -786,7 +785,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MVVM(Model-View-ViewModel)是一种软件架构设计模式，是一种简化用户界面的事件驱动编程方式。MVVM是一种架构模式，并非一种框架，是一种思想，一种组织和管理代码的艺术。它利用数据绑定、属性依赖、路由事件、命令等特性实现
+                            MVVM(Model-View-ViewModel)&#x662F;&#x4E00;&#x79CD;&#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0
                         
                     </div>
                     <div class="publish-info">
@@ -832,8 +831,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.前言Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。即把用户的markdown文件，按照指定的主题解析成静态网页。  
-2.安装hexo安装
+                            1.&#x524D;&#x8A00;Hexo&#x662F;&#x4E00;&#x4E2A;&#x5FEB;&#x901F;&#x3001;&#x7B80;&#x6D01;&#x4E14;&#x9AD8;&#x6548;&#x7684;&#
                         
                     </div>
                     <div class="publish-info">
