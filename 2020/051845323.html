@@ -488,64 +488,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SPA&#x8BBE;&#x8BA1;"><a href="#SPA&#x8BBE;&#x8BA1;" class="headerlink" title="SPA&#x8BBE;&#x8BA1;"></a>SPA&#x8BBE;&#x8BA1;</h1><h2 id="1-&#x8BBE;&#x8BA1;&#x610F;&#x4E49;"><a href="#1-&#x8BBE;&#x8BA1;&#x610F;&#x4E49;" class="headerlink" title="1.&#x8BBE;&#x8BA1;&#x610F;&#x4E49;"></a>1.&#x8BBE;&#x8BA1;&#x610F;&#x4E49;</h2><ol>
-<li>&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;</li>
-<li>&#x51CF;&#x8F7B;&#x670D;&#x52A1;&#x5668;&#x538B;&#x529B;</li>
-<li>&#x589E;&#x5F3A;&#x7528;&#x6237;&#x4F53;&#x9A8C;</li>
-<li>Prerender&#x9884;&#x6E32;&#x67D3;&#x4F18;&#x5316;SEO</li>
+                <h1 id="SPA设计"><a href="#SPA设计" class="headerlink" title="SPA设计"></a>SPA设计</h1><h2 id="1-设计意义"><a href="#1-设计意义" class="headerlink" title="1.设计意义"></a>1.设计意义</h2><ol>
+<li>前后端分离</li>
+<li>减轻服务器压力</li>
+<li>增强用户体验</li>
+<li>Prerender预渲染优化SEO</li>
 </ol>
-<h2 id="2-&#x5DE5;&#x4F5C;&#x539F;&#x7406;"><a href="#2-&#x5DE5;&#x4F5C;&#x539F;&#x7406;" class="headerlink" title="2.&#x5DE5;&#x4F5C;&#x539F;&#x7406;"></a>2.&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h2><ol>
-<li>History &#xFF08;&#x8F83;&#x7F8E;&#x89C2;&#xFF0C;&#x5BF9;&#x6D4F;&#x89C8;&#x5668;&#x6709;&#x8981;&#x6C42;&#xFF09;<br>&#x901A;&#x8FC7;pushState&#x521B;&#x5EFA;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#xFF0C;&#x901A;&#x8FC7;onpopstate&#x54CD;&#x5E94;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x524D;&#x8FDB;&#x3001;&#x540E;&#x9000;&#x4E0E;&#x63A7;&#x5236;&#x4E8B;&#x4EF6;&#xFF0C;&#x5373;history&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#x89E6;&#x53D1;onpopstate&#x3002;</li>
-<li>Hash &#xFF08;&#x517C;&#x5BB9;&#x6027;&#x5F3A;&#xFF09;<br>&#x901A;&#x8FC7;location.hash&#x521B;&#x5EFA;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#xFF0C;&#x901A;&#x8FC7;hashchange&#x54CD;&#x5E94;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x524D;&#x8FDB;&#x3001;&#x540E;&#x9000;&#x4E0E;&#x63A7;&#x5236;&#x4E8B;&#x4EF6;&#x3002;</li>
+<h2 id="2-工作原理"><a href="#2-工作原理" class="headerlink" title="2.工作原理"></a>2.工作原理</h2><ol>
+<li>History （较美观，对浏览器有要求）<br>通过pushState创建历史记录，通过onpopstate响应浏览器的前进、后退与控制事件，即history发生改变时触发onpopstate。</li>
+<li>Hash （兼容性强）<br>通过location.hash创建历史记录，通过hashchange响应浏览器的前进、后退与控制事件。</li>
 </ol>
-<h3 id="&#x4EE3;&#x7801;&#x6F14;&#x793A;"><a href="#&#x4EE3;&#x7801;&#x6F14;&#x793A;" class="headerlink" title="&#x4EE3;&#x7801;&#x6F14;&#x793A;"></a>&#x4EE3;&#x7801;&#x6F14;&#x793A;</h3><p>History&#xFF1A;</p>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><p>History：</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"History a"</span><span class="token operator">></span>a<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
         <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"History b"</span><span class="token operator">></span>b<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
     <span class="token operator">&lt;</span>script<span class="token operator">></span>
-        <span class="token comment" spellcheck="true">// &amp;#x6CE8;&amp;#x518C;&amp;#x8DEF;&amp;#x7531;</span>
-        document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">.</span>History<span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// &amp;#x70B9;&amp;#x51FB;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x7531;</span>
-            item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>apos<span class="token punctuation">;</span>click<span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">// &amp;#x963B;&amp;#x6B62;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E8B;&amp;#x4EF6;</span>
+        <span class="token comment" spellcheck="true">// 注册路由</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.History'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 点击跳转路由</span>
+            item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 阻止默认事件</span>
                 e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token keyword">let</span> link <span class="token operator">=</span> item<span class="token punctuation">.</span>textContent<span class="token punctuation">;</span>
-                window<span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span><span class="token operator">&amp;</span>apos<span class="token punctuation">;</span>History<span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>link<span class="token punctuation">,</span>link<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                window<span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span><span class="token string">'History'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>link<span class="token punctuation">,</span>link<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-        <span class="token comment" spellcheck="true">// &amp;#x76D1;&amp;#x542C;&amp;#x8DEF;&amp;#x7531;</span>
-        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>apos<span class="token punctuation">;</span>popstate<span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// &amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x524D;&amp;#x8FDB;&amp;#x540E;&amp;#x9000;&amp;#x65F6;&amp;#x8F93;&amp;#x51FA;&amp;#x4FE1;&amp;#x606F;</span>
+        <span class="token comment" spellcheck="true">// 监听路由</span>
+        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'popstate'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 浏览器前进后退时输出信息</span>
             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
                 location<span class="token punctuation">:</span> location<span class="token punctuation">.</span>href<span class="token punctuation">,</span>
                 state<span class="token punctuation">:</span> e<span class="token punctuation">.</span>state
             <span class="token punctuation">}</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<p>Hash&#xFF1A;</p>
+<p>Hash：</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
         <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"Hash a"</span><span class="token operator">></span>#a<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
         <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"Hash b"</span><span class="token operator">></span>#b<span class="token punctuation">.</span>html<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
     <span class="token operator">&lt;</span>script<span class="token operator">></span>
-        <span class="token comment" spellcheck="true">// &amp;#x6CE8;&amp;#x518C;&amp;#x8DEF;&amp;#x7531;</span>
-        document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">.</span>Hash<span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// &amp;#x70B9;&amp;#x51FB;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x7531;</span>
-            item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>apos<span class="token punctuation">;</span>click<span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">// &amp;#x963B;&amp;#x6B62;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E8B;&amp;#x4EF6;</span>
+        <span class="token comment" spellcheck="true">// 注册路由</span>
+        document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.Hash'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 点击跳转路由</span>
+            item<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 阻止默认事件</span>
                 e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token keyword">let</span> link <span class="token operator">=</span> item<span class="token punctuation">.</span>textContent<span class="token punctuation">;</span>
                 location<span class="token punctuation">.</span>hash <span class="token operator">=</span> link<span class="token punctuation">;</span>
             <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-        <span class="token comment" spellcheck="true">// &amp;#x76D1;&amp;#x542C;&amp;#x8DEF;&amp;#x7531;</span>
-        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>apos<span class="token punctuation">;</span>hashchange<span class="token operator">&amp;</span>apos<span class="token punctuation">;</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// &amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x524D;&amp;#x8FDB;&amp;#x540E;&amp;#x9000;&amp;#x65F6;&amp;#x8F93;&amp;#x51FA;&amp;#x4FE1;&amp;#x606F;</span>
+        <span class="token comment" spellcheck="true">// 监听路由</span>
+        window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'hashchange'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 浏览器前进后退时输出信息</span>
             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
                 location<span class="token punctuation">:</span> location<span class="token punctuation">.</span>href<span class="token punctuation">,</span>
                 hash<span class="token punctuation">:</span> location<span class="token punctuation">.</span>hash
@@ -835,7 +835,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.&#x524D;&#x8A00;Hexo&#x662F;&#x4E00;&#x4E2A;&#x5FEB;&#x901F;&#x3001;&#x7B80;&#x6D01;&#x4E14;&#x9AD8;&#x6548;&#x7684;&#
+                            1.前言Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。即把用户的markdown文件，按照指定的主题解析成静态网页。  
+2.安装hexo安装
                         
                     </div>
                     <div class="publish-info">
@@ -884,7 +885,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &#x901A;&#x8FC7;post&#x8BF7;&#x6C42;&#x628A;&#x8868;&#x5355;&#x6570;&#x636E;&#x4F20;&#x7ED9;&#x540E;&#x53F0;&#x3002;&#x7
+                            通过post请求把表单数据传给后台。点击提交后，前端显示提交成功，无任何报错信息，但查找数据库发现数据并没有写入。  
+前端代码：data(){
+    return {
+        formData: {
+          date
                         
                     </div>
                     <div class="publish-info">
