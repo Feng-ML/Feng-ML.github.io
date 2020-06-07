@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="认识MVVM, 海棠的博客">
+    <meta name="keywords" content="七牛云图床的使用, 海棠的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>认识MVVM | 海棠的博客</title>
+    <title>七牛云图床的使用 | 海棠的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">认识MVVM</h1>
+                    <h1 class="description center-align post-title">七牛云图床的使用</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MVVM/">
-                                <span class="chip bg-color">MVVM</span>
+                            <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                                <span class="chip bg-color">图床</span>
                             </a>
                         
                     </div>
@@ -450,7 +450,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-06
+                    2020-06-07
                 </div>
                 
 
@@ -471,42 +471,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>MVVM(Model-View-ViewModel)是一种软件架构设计模式，是一种简化用户界面的事件驱动编程方式。MVVM是一种架构模式，并非一种框架，是一种思想，一种组织和管理代码的艺术。它利用数据绑定、属性依赖、路由事件、命令等特性实现高效灵活的架构。</p>
-<hr>
-<p>常见的客户端结构设计有三种方式：</p>
+                <h2 id="1-图床是什么？"><a href="#1-图床是什么？" class="headerlink" title="1. 图床是什么？"></a>1. 图床是什么？</h2><p>图床一般是指储存图片的服务器，有国内和国外之分。国外的图床由于有空间距离等因素决定访问速度很慢影响图片显示速度。国内也分为单线空间、多线空间和cdn加速三种。</p>
+<h2 id="2-为什么要使用图床？"><a href="#2-为什么要使用图床？" class="headerlink" title="2. 为什么要使用图床？"></a>2. 为什么要使用图床？</h2><p>目前的网站、博客等站点中，除了大型网站，官方网站等会自建图片、视频等专用于存放文件的服务器。其他站点如果是这类文件很多，而且具有较强的依赖性质(服务迁移等情况)的话，那么将是一件复杂的事情，因为每个站点的文件存储方式不同。<br>目前主流站点文章的写作方案是<code>Markdown</code>格式，<code>Markdown</code>是一种纯文本格式的标记语言。通过简单的标记语法,它可以使普通文本内容具有一定的格式。编写<code>Markdown</code>格式的文章，往文章中插入图片等资源是一个问题，因为如果你使用了本地的存储，那么文章发表后，图片链接都需要调整。<br>基于上述情况，我们有了一种只要有网络，就能实现图片文件固定链接访问的需求。因此，图床服务是较完美的选择。<br>各图床对比：</p>
 <ul>
-<li>MVC Model-View-Controller</li>
-<li>MVP Model-View-Presenter</li>
-<li>MVVM Model-View-ViewModel</li>
+<li>微博图床类，获取url方式：经济实惠，但稳定性差，近期微博图床开启了防盗链，大拨外链图片不能正常使用</li>
+<li>cdn加速，公有云类：需要购买云存储空间，例如<code>阿里云对象存储oss</code>、<code>腾讯云对象存储cos</code>、<code>微博图床</code>、<code>七牛云图床</code>、<code>又拍云图床</code>等</li>
+<li>自建图床：如果是仅仅个人使用的话会费劲又费钱</li>
+<li>国外图床：例如像<code>Github图床</code>这类，既不收费用户也多，但唯一的不足就是被墙！</li>
 </ul>
-<p>MVVM在本质上就是MVC的改进版，即模型-视图-视图模型。其中</p>
-<ul>
-<li>【模型】指的是后端传递的数据</li>
-<li>【视图】指的是用户所看到的页面。</li>
-<li>【视图模型】mvvm模式的核心，它是连接view和model的桥梁。</li>
-</ul>
-<p><code>【视图模型】</code>有两个方向：一是将<code>【模型】</code>转化成<code>【视图】</code>，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。二是将<code>【视图】</code>转化成<code>【模型】</code>，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。这两个方向都实现的，我们称之为数据的双向绑定。<br>简单来说，在MVVM中<code>【视图】</code>和<code>【模型】</code>是不可以直接进行通信的，它们之间存在这<code>【视图模型】</code>这个observer观察者的角色。当用户操作<code>【视图】</code>，<code>【视图模型】</code>感知到变化，然后通知<code>【模型】</code>发生相应改变，反之亦然。  </p>
-<p><img src="http://www.fengminlin.xyz/blog/%E8%AE%A4%E8%AF%86MVVM/MVVM1.png" alt=""> </p>
-<h3 id="为什么会有MVVM框架？"><a href="#为什么会有MVVM框架？" class="headerlink" title="为什么会有MVVM框架？"></a>为什么会有MVVM框架？</h3><p>在过去的10年中，我们已经把很多传统的服务端代码放到了浏览器中，这样就产生了成千上万行的javascript代码，它们连接了各式各样的HTML 和CSS文件，但缺乏正规的组织形式，这也就是为什么越来越多的开发者使用javascript框架。比如：angular、react、vue。浏览器的兼容性问题已经不再是前端的阻碍。前端的项目越来越大，项目的可维护性和扩展性、安全性等成了主要问题。当年为了解决浏览器兼容性问题，出现了很多类库，其中最典型的就是jquery。但是这类库没有实现对业务逻辑的分成，所以维护性和扩展性极差。综上两方面原因，才有了MVVM模式一类框架的出现。比如vue,通过数据的双向绑定，极大了提高了开发效率。  </p>
-<p>ViewModel所封装出来的数据模型包含视图的状态和行为两部分，Model的数据模型只包含状态，这样的封装使得ViewModel可以完整地去描述View层。MVVM最标志的特性是数据绑定，MVVM的核心理念是通过声明式的数据绑定来实现View的分离，完全解耦View。  </p>
-<p><img src="http://www.fengminlin.xyz/blog/%E8%AE%A4%E8%AF%86MVVM/MVVM2.png" alt=""> </p>
-<h3 id="Vue实现原理"><a href="#Vue实现原理" class="headerlink" title="Vue实现原理"></a>Vue实现原理</h3><ol>
-<li>数据监听器</li>
-</ol>
-<p>Observer将普通的JS对象传递给VUE实例的data选项，Vue将遍历此对象所有属性，并使用Object.defineProperty()方法将属性全部转换成setter和getter方法。当data中的属性被调用访问时，则会调用getter方法。当data中的属性被改变时，则会调用setter方法。</p>
-<ol start="2">
-<li>指令解析器</li>
-</ol>
-<p>Compiler 的作用是对每个元素节点的指令进行解析，替换模板数据，并绑定对应的更新函数，初始化相应的订阅。</p>
-<ol start="3">
-<li>订阅者</li>
-</ol>
-<p>Watcher作为连接Observer和Compiler的桥梁，能够订阅并接收每个属性变动的通知，执行指令绑定相应回调函数。</p>
-<ol start="4">
-<li>消息订阅器</li>
-</ol>
-<p>Dep内部维护了一个数组，用来执行收集订阅者Watcher，数据变动触发notify()函数，在调用订阅者的update()方法。  </p>
-<p><img src="http://www.fengminlin.xyz/blog/%E8%AE%A4%E8%AF%86MVVM/MVVM3.png" alt=""></p>
+<h2 id="3-七牛云图床的使用"><a href="#3-七牛云图床的使用" class="headerlink" title="3.七牛云图床的使用"></a>3.七牛云图床的使用</h2><h3 id="3-1-账号注册"><a href="#3-1-账号注册" class="headerlink" title="3.1 账号注册"></a>3.1 账号注册</h3><p>使用前需要注册一个七牛云的账号并进行实名认证，实名认证需要一定的审核时间，注册地址为：<a href="https://portal.qiniu.com/signup" target="_blank" rel="noopener">https://portal.qiniu.com/signup</a></p>
+<h3 id="3-2-创建存储服务"><a href="#3-2-创建存储服务" class="headerlink" title="3.2 创建存储服务"></a>3.2 创建存储服务</h3><p>登录到控制台，点击对象存储，在空间管理中新建一个存储空间，输入存储空间的名称，选择存储区域，本存储空间是用于站点图床，所以选择访问控制类型为公开空间，如下所示</p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A1.png" alt=""></p>
+<h3 id="3-3-配置存储服务"><a href="#3-3-配置存储服务" class="headerlink" title="3.3 配置存储服务"></a>3.3 配置存储服务</h3><p>存储服务创建完成后，需要配置一个<code>融合CDN域名</code>，<code>融合CDN域名</code>简单来说就是指资源对象的外链域名，七牛云提供了融合CDN的测试域名，官方提示为：七牛融合 CDN 测试域名（以<code>clouddn.com/qiniucdn.com/qiniudn.com/qnssl.com/qbox.me</code>结尾），每个域名每日限总流量 10GB，每个测试域名自创建起 30 个自然日后系统会自动回收，仅供测试使用并且不支持 Https 访问。因此需要我们自己配置一个CDN加速域名，以本站点为例，控制台中进入CDN中的域名管理，点击域名，域名类型选择普通域名，其他配置默认或根据需求优化配置即可</p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A2.png" alt=""></p>
+<h3 id="3-4-配置域名解析"><a href="#3-4-配置域名解析" class="headerlink" title="3.4 配置域名解析"></a>3.4 配置域名解析</h3><p>配置完成后跳转到域名管理界面，显示了一个<code>cname</code>记录，这就是配置好七牛云存储提供的的cdn加速域名，<code>fengminlin.xyz</code>的域名服务器是阿里云旗下的万网，这里配置的<code>image.fengminlin.xyz</code>域名和对应的<code>cname</code>记录需要在阿里云的域名控制台中添加一条解析记录  </p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A3.png" alt=""></p>
+<p>等待片刻后即可生效</p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A4.png" alt=""></p>
+<h3 id="3-5-配置外链默认域名"><a href="#3-5-配置外链默认域名" class="headerlink" title="3.5 配置外链默认域名"></a>3.5 配置外链默认域名</h3><p>在空间管理列表中的文件管理，选择外链域名为默认域名而不是测试域名，这样图床就建设完成了，可以在页面直接上传文件上去。</p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A5.png" alt=""></p>
+<h2 id="4-图床工具"><a href="#4-图床工具" class="headerlink" title="4.图床工具"></a>4.图床工具</h2><p>图床工具选择免费的<code>PicGo</code>，最新版本下载地址为 <a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo/releases</a><br>注意： <code>mac</code> 系统选择 <code>dmg</code> 下载，<code>windwos</code> 选择 <code>exe</code> 下载。<br>下载完后在<code>PicGo</code>中配置七牛图床并设置为默认图床</p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A6.png" alt=""></p>
+<p><code>AccessKey</code>和<code>SecretKey</code>是访问和操作对象存储的密钥对，其中<code>AccessKey</code>会在传输中包含，而用户必须保管好<code>SecretKey</code>不在网络上传输以防止被窃取。在控制台点击个人中心，密钥管理即可查看到密钥对。<br>存储区域对应简称如下</p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A7.png" alt=""></p>
+<p>配置完成后，在上传区点击选择图片或者拖拽进行上传即可。<br>上传成功后点击复制图片的路径，然后在<code>Markdown</code>文件中粘贴就大功告成了。</p>
+<p><img src="http://image.fengminlin.xyz/%E5%9B%BE%E5%BA%8A8.png" alt=""></p>
 
             </div>
             <hr/>
@@ -532,7 +521,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Feng-ML.github.io/2020/060614027.html">http://Feng-ML.github.io/2020/060614027.html</a>
+                    <a href="http://Feng-ML.github.io/2020/060762583.html">http://Feng-ML.github.io/2020/060762583.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -570,8 +559,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MVVM/">
-                                    <span class="chip bg-color">MVVM</span>
+                                <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                                    <span class="chip bg-color">图床</span>
                                 </a>
                             
                         </div>
@@ -742,7 +731,7 @@
         repo: 'blogtalk',
         owner: 'Feng-ML',
         admin: ["Feng-ML"],
-        id: '2020-06-06T00-00-00',
+        id: '2020-06-07T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -766,9 +755,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/060762583.html">
                     <div class="card-image">
@@ -787,9 +777,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -798,6 +788,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -816,34 +807,29 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/052952120.html">
+                <a href="/2020/060614027.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Hexo的基本使用">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="认识MVVM">
                         
-                        <span class="card-title">Hexo的基本使用</span>
+                        <span class="card-title">认识MVVM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.前言Hexo是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。即把用户的markdown文件，按照指定的主题解析成静态网页。  
-2.安装hexo安装
+                            MVVM(Model-View-ViewModel)是一种软件架构设计模式，是一种简化用户界面的事件驱动编程方式。MVVM是一种架构模式，并非一种框架，是一种思想，一种组织和管理代码的艺术。它利用数据绑定、属性依赖、路由事件、命令等特性实现
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            海棠
                             
                         </span>
                     </div>
@@ -851,8 +837,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/MVVM/">
+                        <span class="chip bg-color">MVVM</span>
                     </a>
                     
                 </div>
