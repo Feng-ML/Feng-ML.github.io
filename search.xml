@@ -22,6 +22,8 @@
             
             <tag> 传值 </tag>
             
+            <tag> props </tag>
+            
         </tags>
       
     </entry>
@@ -197,12 +199,6 @@
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
       
     </entry>
     
