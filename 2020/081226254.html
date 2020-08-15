@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo d提交错误, 海棠的博客">
+    <meta name="keywords" content="vue传值的几种方法, 海棠的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo d提交错误 | 海棠的博客</title>
+    <title>vue传值的几种方法 | 海棠的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo d提交错误</h1>
+                    <h1 class="description center-align post-title">vue传值的几种方法</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/error/">
-                                <span class="chip bg-color">error</span>
+                            <a href="/tags/%E4%BC%A0%E5%80%BC/">
+                                <span class="chip bg-color">传值</span>
                             </a>
                         
                     </div>
@@ -446,8 +446,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/hexo/" class="post-category">
-                                hexo
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-01
+                    2020-08-12
                 </div>
                 
 
@@ -480,32 +480,132 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="输入hexo-d时的错误"><a href="#输入hexo-d时的错误" class="headerlink" title="输入hexo d时的错误"></a>输入hexo d时的错误</h1><p>在输入hexo d打算把代码提交到git仓库时发生的错误<br>错误代码如下：  </p>
-<pre class=" language-bash"><code class="language-bash">*** Please tell me <span class="token function">who</span> you are.
+                <h2 id="1-父子组件间传值"><a href="#1-父子组件间传值" class="headerlink" title="1. 父子组件间传值"></a>1. 父子组件间传值</h2><h3 id="1-1-父组件向子组件传值（props）"><a href="#1-1-父组件向子组件传值（props）" class="headerlink" title="1.1 父组件向子组件传值（props）"></a>1.1 父组件向子组件传值（props）</h3><p>父组件代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 子组件 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Child</span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Child</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
-Run
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span> Child <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  data <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      message<span class="token punctuation">:</span> <span class="token string">'Father Message'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>子组件代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 渲染出父组件传过来的值 --></span>
+    message: {{value}}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
-  <span class="token function">git</span> config --global user.email <span class="token string">"you@example.com"</span>
-  <span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span>
-
-to <span class="token keyword">set</span> your account<span class="token string">'s default identity.
-Omit --global to set the identity only in this repository.
-
-fatal: unable to auto-detect email address (got '</span>Administrator@A-20180302OZNSB.<span class="token punctuation">(</span>none<span class="token punctuation">)</span><span class="token string">')
-error: src refspec HEAD does not match any
-error: failed to push some refs to '</span>git@github.com:Feng-ML/Feng-ML.github.io.git<span class="token string">'
-FATAL Something'</span>s wrong. Maybe you can <span class="token function">find</span> the solution here: https://hexo.io/docs/troubleshooting.html
-Error: Spawn failed
-    at ChildProcess.<span class="token operator">&lt;</span>anonymous<span class="token operator">></span> <span class="token punctuation">(</span>E:\myblog\hexoblog\node_modules\_hexo-util@1.9.0@hexo-util\lib\spawn.js:51:21<span class="token punctuation">)</span>
-    at ChildProcess.emit <span class="token punctuation">(</span>events.js:210:5<span class="token punctuation">)</span>
-    at ChildProcess.cp.emit <span class="token punctuation">(</span>E:\myblog\hexoblog\node_modules\_cross-spawn@7.0.2@cross-spawn\lib\enoent.js:34:29<span class="token punctuation">)</span>
-    at Process.ChildProcess._handle.onexit <span class="token punctuation">(</span>internal/child_process.js:272:12<span class="token punctuation">)</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    value<span class="token punctuation">:</span> String
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="1-2-子组件给父组件传值（emit事件）"><a href="#1-2-子组件给父组件传值（emit事件）" class="headerlink" title="1.2 子组件给父组件传值（emit事件）"></a>1.2 子组件给父组件传值（emit事件）</h3><p>子组件代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onClick<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    abc
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 点击发布消息</span>
+    <span class="token function">onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 自定义事件input</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token string">'Child Message'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre>
-<p>经查找这是需要我们输入邮箱与用户名。<br>即需要运行如下代码：</p>
-<pre class=" language-bash"><code class="language-bash">  <span class="token comment" spellcheck="true"># 引号内填写自己的邮箱与用户名</span>
-  <span class="token function">git</span> config --global user.email <span class="token string">"you@example.com"</span>
-  <span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span></code></pre>
-<p>运行完后重新输入hexo d后提交成功！</p>
+<p>父组件代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 用自定义事件input调用onMessage方法 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Child</span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onMessage<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Child</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span> Child <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    onMessage <span class="token punctuation">(</span>msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 接收的子组件传来的消息</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="2-Session-Storage-local-Storage缓存的形式进行传递"><a href="#2-Session-Storage-local-Storage缓存的形式进行传递" class="headerlink" title="2. Session Storage/local Storage缓存的形式进行传递"></a>2. Session Storage/local Storage缓存的形式进行传递</h2><p><code>sessionStorage</code>和<code>localStorage</code>都是HTML5新增的方法，使用它可以在客户端本地建立一个数据库，原本必须保存在服务器端数据库中的内容现在可以直接保存在客户端本地了，这大大减轻了服务器端的负担，同时也加快了访问数据的速度。</p>
+<h3 id="2-1-local-Storage"><a href="#2-1-local-Storage" class="headerlink" title="2.1 local Storage"></a>2.1 local Storage</h3><p>用法如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 获取指定key本地存储的值</span>
+localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 将value存储到key字段</span>
+localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 删除指定key本地存储的值</span>
+localStorage<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 清除所有本地存储的值</span>
+localStorage<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>优点：</p>
+<ul>
+<li>相较于cookie的小容量（4K）来说容量较大（5MB）</li>
+<li>简单易用，功能强大，原生支持 </li>
+<li>可离线浏览与使用 ，减少服务器负载</li>
+</ul>
+<p>缺点与限制：</p>
+<ul>
+<li>无法跨域，运行在不同域的JavaScript无法调用其他域<code>localStorage</code>的数据</li>
+<li>只能储存字符串型的数据，无法保存数组和对象，但可以通过<code>join</code>、<code>toString</code>和<code>JSON.stringify</code>等方法先转换成字符串再储存</li>
+<li>安全性不高，请勿保存敏感信息</li>
+<li>如果多人开发容易造成key重复导致全局污染</li>
+</ul>
+<h3 id="2-2-Session-Storage"><a href="#2-2-Session-Storage" class="headerlink" title="2.2 Session Storage"></a>2.2 Session Storage</h3><p>用法特点与<code>local Storage</code>相似：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 获取指定key本地存储的值</span>
+sessionStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 将value存储到key字段</span>
+sessionStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 删除指定key本地存储的值</span>
+sessionStorage<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 清除所有本地存储的值</span>
+sessionStorage<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><code>Session Storage</code>与<code>local Storage</code>的区别在于保存的周期,<code>Session Storage</code>为临时保存，当用户关闭浏览器时自动删除数据，<code>local Storage</code>则是永久保存，除非主动删除。</p>
+<h2 id="3-组件之间传值（eventBus）"><a href="#3-组件之间传值（eventBus）" class="headerlink" title="3. 组件之间传值（eventBus）"></a>3. 组件之间传值（eventBus）</h2><p>此方法适用于小项目，页面较少的场景。<br><code>EventBus</code>又称事件总线,在Vue中可以使用<code>EventBus</code>来作为沟通桥梁的概念,就像是所有事件共用相同的事件中心,可以向该中心发送事件或接收事件,所有组件都可以上下平行的通知其他组件。  </p>
+<p>用法如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 首先在全局中通过new Vue()生成一个vue实例来实现事件总线:</span>
+<span class="token keyword">var</span> EventBus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//在需要传递参数的组件中，用$emit发送需要传递的值，键名可以自己定义（可以为对象）</span>
+eventBus<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'eventBusName'</span><span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+　　
+<span class="token comment" spellcheck="true">//在需要接受参数的组件中，用$on接受该值（或对象），val即为传递过来的值</span>
+eventBus<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'eventBusName'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>　      
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 最后记住要在beforeDestroy()中关闭这个eventBus</span>
+eventBus<span class="token punctuation">.</span><span class="token function">$off</span><span class="token punctuation">(</span><span class="token string">'eventBusName'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="4-组件之间传值（Vuex）"><a href="#4-组件之间传值（Vuex）" class="headerlink" title="4. 组件之间传值（Vuex）"></a>4. 组件之间传值（Vuex）</h2><p>此方法适用于大型项目，页面较多的场景。<br>因为对于多层嵌套的组件进行传值将会非常繁琐，并且对于兄弟组件间的状态传递也无能为力，所以<code>Vuex</code>就帮我们解决这种困难。</p>
+<p>详细用法：<a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">Vuex官方文档</a></p>
 
             </div>
             <hr/>
@@ -531,7 +631,7 @@ Error: Spawn failed
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Feng-ML.github.io/2020/050127828.html">http://Feng-ML.github.io/2020/050127828.html</a>
+                    <a href="http://Feng-ML.github.io/2020/081226254.html">http://Feng-ML.github.io/2020/081226254.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -569,8 +669,8 @@ Error: Spawn failed
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/error/">
-                                    <span class="chip bg-color">error</span>
+                                <a href="/tags/%E4%BC%A0%E5%80%BC/">
+                                    <span class="chip bg-color">传值</span>
                                 </a>
                             
                         </div>
@@ -741,7 +841,7 @@ Error: Spawn failed
         repo: 'blogtalk',
         owner: 'Feng-ML',
         admin: ["Feng-ML"],
-        id: '2020-05-01T13-56-00',
+        id: '2020-08-12T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -765,33 +865,34 @@ Error: Spawn failed
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/050656731.html">
+                <a href="/2020/081226254.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="post遇到的问题">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="vue传值的几种方法">
                         
-                        <span class="card-title">post遇到的问题</span>
+                        <span class="card-title">vue传值的几种方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            通过post请求把表单数据传给后台。点击提交后，前端显示提交成功，无任何报错信息，但查找数据库发现数据并没有写入。  
-前端代码：data(){
-    return {
-        formData: {
-          date
+                            1. 父子组件间传值1.1 父组件向子组件传值（props）父组件代码如下：
+&lt;template>
+  &lt;div>
+    &lt;!-- 子组件 -->
+    &lt;Child :value="message">&lt;/
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -804,15 +905,12 @@ Error: Spawn failed
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/error/">
-                        <span class="chip bg-color">error</span>
-                    </a>
-                    
-                    <a href="/tags/axios/">
-                        <span class="chip bg-color">axios</span>
+                    <a href="/tags/%E4%BC%A0%E5%80%BC/">
+                        <span class="chip bg-color">传值</span>
                     </a>
                     
                 </div>
@@ -826,33 +924,33 @@ Error: Spawn failed
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/042816107.html">
+                <a href="/2020/07082028.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="http知识体系">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">http知识体系</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            本文思维导图如下：
+
+1.HTTP 报文结构是怎样的？对于 TCP 而言，在传输的时候分为两个部分:TCP头和数据部分。
+而 HTTP 类似，也是header + body的结构，具体而言:
+起始行 + 头部 + 空行 + 实体由于 htt
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            海棠
                             
                         </span>
                     </div>
@@ -860,8 +958,8 @@ Error: Spawn failed
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/http/">
+                        <span class="chip bg-color">http</span>
                     </a>
                     
                 </div>
